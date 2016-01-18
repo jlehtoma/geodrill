@@ -1,0 +1,9 @@
+#ifndef GEODRILLCONFIG_H
+#define GEODRILLCONFIG_H
+
+// the configured options and settings for Tutorial
+#define GeoDrill_VERSION_MAJOR @GeoDrill_VERSION_MAJOR@
+#define GeoDrill_VERSION_MINOR @GeoDrill_VERSION_MINOR@
+#define GeoDrill_VERSION_PATCH @GeoDrill_VERSION_PATCH@
+
+#endif
