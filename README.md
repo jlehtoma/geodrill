@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jlehtoma/geodrill.svg?branch=master)](https://travis-ci.org/jlehtoma/geodrill)
+
 # GeoDrill
 
 Simple command-line tool to drill into a stack of rasters files and return information on values in a given coordinate.
