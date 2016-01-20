@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.7)
+cmake_minimum_required(VERSION 2.8.11)
 project(GeoDrill)
 # The version number.
 set(GeoDrill_VERSION_MAJOR 0)
