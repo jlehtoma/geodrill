@@ -5,6 +5,12 @@
 
 using namespace std;
 
+/**
+* @brief A short function description
+*
+* A more detailed function description
+*/
+
 int printRasterInfo(const char* pszFilename)
 {
     GDALDataset *poDataset;
