@@ -4,4 +4,5 @@ data/
 doc/html
 doc/latex
 lib/gtest
+lib/gdal
 
