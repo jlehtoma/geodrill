@@ -51,7 +51,7 @@ void list_files(std::string dir, std::vector<std::string>& raster_files)
                 if (fs::is_regular_file(dir_itr->status()))
                 {
                     ++file_count;
-                    raster_files.push_back(dir_itr->path().filename().string());
+                    raster_files.push_back(dir_itr->path().string());
                 }
             }
             catch (const std::exception & ex)
