@@ -1,8 +1,7 @@
 .idea
-bin/
+build/
 data/
 doc/html
 doc/latex
-lib/gtest
-lib/gdal
-
+3rdparty/gtest/
+3rdparty/gdal/
