@@ -10,13 +10,7 @@
 
 #define BOOST_FILESYSTEM_VERSION 3
 
-//  As an example program, we don't want to use any deprecated features
-#ifndef BOOST_FILESYSTEM_NO_DEPRECATED
-#  define BOOST_FILESYSTEM_NO_DEPRECATED
-#endif
-#ifndef BOOST_SYSTEM_NO_DEPRECATED
-#  define BOOST_SYSTEM_NO_DEPRECATED
-#endif
+
 
 #include "boost/filesystem/operations.hpp"
 #include "boost/filesystem/path.hpp"

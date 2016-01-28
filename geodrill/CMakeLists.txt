@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.11)
 
-find_package(Boost COMPONENTS REQUIRED program_options filesystem)
+find_package(Boost COMPONENTS REQUIRED filesystem program_options system)
 if (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
 endif ()
