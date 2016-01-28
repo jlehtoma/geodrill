@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.11)
 
-find_package(Boost COMPONENTS REQUIRED program_options)
+find_package(Boost COMPONENTS REQUIRED program_options filesystem)
 if (Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIR})
 endif ()
@@ -34,6 +34,6 @@ set(SOURCE_FILES io.cpp ../include/io.h)
 add_library(geodrill SHARED ${SOURCE_FILES})
 target_link_libraries(geodrill ${Boost_LIBRARIES} ${GDAL_LIBRARY})
 
-set(SOURCE_FILES main.cpp ../include/io.h ../include/GeoDrillConfig.h)
+set(SOURCE_FILES main.cpp file_utils.cpp ../include/GeoDrillConfig.h ../include/file_utils.h)
 add_executable(geodrill-cli ${SOURCE_FILES})
 target_link_libraries(geodrill-cli geodrill ${Boost_LIBRARIES})
