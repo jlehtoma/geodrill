@@ -7,6 +7,7 @@
 
 #include "GeoDrillConfig.h"
 #include "file_utils.h"
+#include "io.h"
 
 namespace po = boost::program_options;
 
@@ -56,7 +57,7 @@ int main(int argc, const char* argv[]){
             if (vm.count("list") && vm["list"].as<bool>()) {
                 std::cout << "  " << raster_file << std::endl;
             }
-
+            success = readRaster(raster_file.c_str());
         }
     }
 
