@@ -12,7 +12,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/build/lib")
 
 set(PROJECT_3RDPARTY_PATH ${PROJECT_SOURCE_DIR}/3rdparty)
 include_directories(include)
-link_libraries(${CMAKE_CURRENT_SOURCE_DIR}/build/lib)
 
 add_subdirectory(geodrill)
 
