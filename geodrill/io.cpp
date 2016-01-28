@@ -24,6 +24,7 @@ int printRasterInfo(const char* pszFilename)
     }
     else
     {
+        std::cout << "Dataset: " << pszFilename << std::endl;
         double adfGeoTransform[6];
         std::cout << " Driver: " << poDataset->GetDriver()->GetDescription() << "/" <<
                 poDataset->GetDriver()->GetMetadataItem( GDAL_DMD_LONGNAME ) << std::endl;
@@ -62,6 +63,8 @@ int readRaster(const char* pszFilename)
         poBand = poDataset->GetRasterBand( 1 );
         poBand->GetBlockSize( &nBlockXSize, &nBlockYSize );
 
+        std::cout << "Dataset: " << pszFilename << std::endl;
+
         printf( "Block=%dx%d Type=%s, ColorInterp=%s\n",
                 nBlockXSize, nBlockYSize,
                 GDALGetDataTypeName(poBand->GetRasterDataType()),
@@ -77,6 +80,7 @@ int readRaster(const char* pszFilename)
         if( poBand->GetColorTable() != NULL )
             printf( "Band has a color table with %d entries.\n",
                     poBand->GetColorTable()->GetColorEntryCount() );
+        std::cout << std::endl;
     }
     return 0;
 }
