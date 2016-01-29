@@ -60,26 +60,45 @@ int readRaster(const char* pszFilename)
         int             bGotMin, bGotMax;
         double          adfMinMax[2];
 
-        poBand = poDataset->GetRasterBand( 1 );
-        poBand->GetBlockSize( &nBlockXSize, &nBlockYSize );
+        poBand = poDataset->GetRasterBand(1);
+        poBand->GetBlockSize( &nBlockXSize, &nBlockYSize);
 
         std::cout << "Dataset: " << pszFilename << std::endl;
 
-        printf( "Block=%dx%d Type=%s, ColorInterp=%s\n",
-                nBlockXSize, nBlockYSize,
-                GDALGetDataTypeName(poBand->GetRasterDataType()),
-                GDALGetColorInterpretationName(
-                        poBand->GetColorInterpretation()) );
-        adfMinMax[0] = poBand->GetMinimum( &bGotMin );
-        adfMinMax[1] = poBand->GetMaximum( &bGotMax );
-        if( ! (bGotMin && bGotMax) )
-            GDALComputeRasterMinMax((GDALRasterBandH)poBand, TRUE, adfMinMax);
-        printf( "Min=%.3fd, Max=%.3f\n", adfMinMax[0], adfMinMax[1] );
-        if( poBand->GetOverviewCount() > 0 )
-            printf( "Band has %d overviews.\n", poBand->GetOverviewCount() );
-        if( poBand->GetColorTable() != NULL )
-            printf( "Band has a color table with %d entries.\n",
-                    poBand->GetColorTable()->GetColorEntryCount() );
+        std::cout << "Block=" << nBlockXSize << "x" << nBlockYSize << " Type=" <<
+                GDALGetDataTypeName(poBand->GetRasterDataType()) << " ColorInterp=" <<
+                GDALGetColorInterpretationName(poBand->GetColorInterpretation()) << std::endl;
+
+        adfMinMax[0] = poBand->GetMinimum(&bGotMin);
+        adfMinMax[1] = poBand->GetMaximum(&bGotMax);
+
+        if(!(bGotMin && bGotMax)) {
+            GDALComputeRasterMinMax((GDALRasterBandH) poBand, TRUE, adfMinMax);
+        }
+        std::cout << "Min=" << adfMinMax[0] << " Max=" << adfMinMax[1] << std::endl;
+
+        if(poBand->GetOverviewCount() > 0) {
+            std::cout << "Band has " << poBand->GetOverviewCount() << " overviews." << std::endl;
+        }
+        if( poBand->GetColorTable() != NULL ) {
+            std::cout << "Band has a color table with " << poBand->GetColorTable()->GetColorEntryCount() <<
+                    " entries." << std::endl;
+        }
+
+        float *pafScanline;
+        int   nXSize = poBand->GetXSize();
+        pafScanline = (float *) CPLMalloc(sizeof(float) * nXSize);
+
+        // RasterIO has a new argument psExtraArg in GDAL > 2.0
+        #ifdef USE_GDAL_2
+            GDALRasterIOExtraArg* arg = NULL;function call arguments different library version
+            poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float32, 0, 0, arg);
+        #else
+            poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float32, 0, 0);
+        #endif
+
+        CPLFree(pafScanline);
+        GDALClose((GDALDatasetH) poDataset);
         std::cout << std::endl;
     }
     return 0;
