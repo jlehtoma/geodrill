@@ -109,7 +109,8 @@ int readRaster(const char* pszFilename)
         // better performance for reading the whole data at one go.
         #ifdef USE_GDAL_2
             GDALRasterIOExtraArg* arg = NULL;function call arguments different library version
-            poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float3GDALRasterBand::ReadBlock 2, 0, 0, arg);
+            poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float3GDALRasterBand::ReadBlock 2,
+               0, 0, arg);
         #else
             poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float32, 0, 0);
         #endif
