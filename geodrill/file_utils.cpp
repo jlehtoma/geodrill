@@ -10,13 +10,18 @@
 
 #define BOOST_FILESYSTEM_VERSION 3
 
+#ifndef BOOST_FILESYSTEM_NO_DEPRECATED
+#  define BOOST_FILESYSTEM_NO_DEPRECATED
+#endif
+#ifndef BOOST_SYSTEM_NO_DEPRECATED
+#  define BOOST_SYSTEM_NO_DEPRECATED
+#endif
 
-
-#include "boost/filesystem/operations.hpp"
-#include "boost/filesystem/path.hpp"
-#include "boost/progress.hpp"
 #include <iostream>
+#include "boost/filesystem/operations.hpp"
+#include "boost/progress.hpp"
 
+using namespace std;
 namespace fs = boost::filesystem;
 
 void list_files(std::string dir, std::vector<std::string>& raster_files)
