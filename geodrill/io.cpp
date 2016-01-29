@@ -108,7 +108,7 @@ int readRaster(const char* pszFilename)
         // RasterIO has a new argument psExtraArg in GDAL > 2.0. NOTE: that  GDALRasterBand::ReadBlock() probably has
         // better performance for reading the whole data at one go.
         #ifdef USE_GDAL_2
-            GDALRasterIOExtraArg* arg = NULL;function call arguments different library version
+            GDALRasterIOExtraArg* arg = NULL;
             poBand->RasterIO(GF_Read, 0, 0, nXSize, 1, pafScanline, nXSize, 1, GDT_Float3GDALRasterBand::ReadBlock 2,
                0, 0, arg);
         #else
