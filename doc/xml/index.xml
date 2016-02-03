@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.11">
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="CMakeLists_8txt" kind="file"><name>CMakeLists.txt</name>
+    <member refid="CMakeLists_8txt_1a05da3bf0375a852a4157d2ddce202a1a" kind="function"><name>cmake_minimum_required</name></member>
+    <member refid="CMakeLists_8txt_1a3756f0befbfcde3ab43fd2d899197f91" kind="function"><name>endif</name></member>
+    <member refid="CMakeLists_8txt_1a510087fb3156c3b69ac3f32ca5240e49" kind="function"><name>set</name></member>
+    <member refid="CMakeLists_8txt_1a52eed4eed81f2d2d91d4f555cc57ad95" kind="function"><name>if</name></member>
+    <member refid="CMakeLists_8txt_1aafcd59d00b488b7842498c771de6bedb" kind="function"><name>set</name></member>
+    <member refid="CMakeLists_8txt_1adc5310f9ceecb2ef8540f5ed4cd16fa0" kind="function"><name>else</name></member>
+    <member refid="CMakeLists_8txt_1a6cf53e73d4b742335f12ef221b2b825f" kind="function"><name>endif</name></member>
+    <member refid="CMakeLists_8txt_1a9313a95f55616034447d5f8ee717cb94" kind="function"><name>target_link_libraries</name></member>
+  </compound>
+  <compound refid="file__utils_8cpp" kind="file"><name>file_utils.cpp</name>
+    <member refid="file__utils_8cpp_1a7b03a7555e481d771c4ca8c611e331b0" kind="define"><name>BOOST_FILESYSTEM_VERSION</name></member>
+    <member refid="file__utils_8cpp_1a3f662379b0269b73ca7edd271a7a9bfc" kind="define"><name>BOOST_FILESYSTEM_NO_DEPRECATED</name></member>
+    <member refid="file__utils_8cpp_1af801caa0803ded257cb30000090aa864" kind="define"><name>BOOST_SYSTEM_NO_DEPRECATED</name></member>
+    <member refid="file__utils_8cpp_1a4eec5997f9f7d374af85b2972f9ad397" kind="function"><name>list_files</name></member>
+  </compound>
+  <compound refid="io_8cpp" kind="file"><name>io.cpp</name>
+    <member refid="io_8cpp_1a766ad896bb45599819ed8a0f71429a63" kind="function"><name>printRasterInfo</name></member>
+    <member refid="io_8cpp_1a84e7ac152d89402406da24e0c16c5f97" kind="function"><name>readRaster</name></member>
+  </compound>
+  <compound refid="main_8cpp" kind="file"><name>main.cpp</name>
+    <member refid="main_8cpp_1ac0f2228420376f4db7e1274f2b41667c" kind="function"><name>main</name></member>
+  </compound>
+</doxygenindex>
