@@ -24,7 +24,7 @@
 using namespace std;
 namespace fs = boost::filesystem;
 
-void list_files(std::string dir, std::vector<std::string>& raster_files)
+void list_files(std::string dir, std::vector<std::string>& raster_files, const string& ext)
 {
     fs::path p(fs::current_path());
 
@@ -36,18 +36,19 @@ void list_files(std::string dir, std::vector<std::string>& raster_files)
     if (!fs::exists(p))
     {
         std::cout << "\nNot found: " << p << std::endl;
+        return;
     }
 
     if (fs::is_directory(p))
     {
         p = fs::canonical(p);
-        std::cout << "\nIn directory: " << p << "\n\n";
+        std::cout << "In directory: " << p << std::endl;
         fs::directory_iterator end_iter;
         for (fs::directory_iterator dir_itr(p); dir_itr != end_iter; ++dir_itr)
         {
             try
             {
-                if (fs::is_regular_file(dir_itr->status()))
+                if (fs::is_regular_file(dir_itr->status()) && dir_itr->path().extension() == ext)
                 {
                     ++file_count;
                     raster_files.push_back(dir_itr->path().string());
@@ -59,7 +60,10 @@ void list_files(std::string dir, std::vector<std::string>& raster_files)
                 std::cout << dir_itr->path().filename() << " " << ex.what() << std::endl;
             }
         }
-        std::cout << "Found " << file_count << " files with " << err_count << " errors:" << std::endl;
+        std::cout << "Found " << file_count << " files with extension '" << ext << "'" << std::endl << std::endl;
+        if (err_count > 0) {
+            std::cout << "WARNING: encountered " << err_count << " errors" << std::endl;
+        }
     }
     else // must be a file
     {

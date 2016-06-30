@@ -18,6 +18,7 @@ int main(int argc, const char* argv[]){
             ("help,h", "Display this help message")
             /* ("compression,c", po::value<int>()->default_value(5)->implicit_value(10),"Compression level") */
             ("input-dir", po::value<std::vector<std::string>>(), "Input directory")
+            ("extension,e", po::value<std::string>()->default_value(".tif"))
             ("list,l", po::bool_switch()->default_value(false), "List files")
             ("version,v", "Display the version number");
 
@@ -50,14 +51,18 @@ int main(int argc, const char* argv[]){
     if(vm.count("input-dir")) {
         std::vector<std::string> dirs = vm["input-dir"].as<std::vector<std::string>>();
         std::vector<std::string> input_rasters;
+        std::string ext = vm["extension"].as<std::string>();
         for (std::string dir : dirs) {
-            list_files(dir, input_rasters);
+            list_files(dir, input_rasters, ext);
         }
         for (std::string raster_file : input_rasters) {
             if (vm.count("list") && vm["list"].as<bool>()) {
                 std::cout << "  " << raster_file << std::endl;
             }
-            success = readRaster(raster_file.c_str());
+            else
+            {
+                success = readRaster(raster_file.c_str());
+            }
         }
     }
 
