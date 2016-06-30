@@ -6,7 +6,7 @@ if (Boost_FOUND)
 endif ()
 
 # Use GDAL 2.0 (potentially in unconventional place)?
-option (USE_GDAL_2 "Use GDAL 2.0" ON)
+option (USE_GDAL_2 "Use GDAL 2.0" OFF)
 
 if (USE_GDAL_2)
     # Set custom library dir
