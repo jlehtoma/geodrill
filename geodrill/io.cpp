@@ -5,14 +5,15 @@
 
 using namespace std;
 
-/**
-* @brief A short function description
-*
-* A more detailed function description
+/*! \file io.cpp
+    With a little bit of a elaboration, should you feel it necessary.
 */
-
 int printRasterInfo(const char* pszFilename)
 {
+    /** An enum type.
+     *  The documentation block cannot be put after the enum!
+     */
+
     GDALDataset *poDataset;
     GDALAllRegister();
     poDataset = (GDALDataset *) GDALOpen( pszFilename, GA_ReadOnly );
